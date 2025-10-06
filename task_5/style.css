@@ -1,0 +1,113 @@
+@font-face {
+  font-family: seb;
+  src: url(./Japanese\ 3017.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'helvetica neue';
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    overflow: auto;
+   
+}
+
+#parent{
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#heading{
+    
+    color: rgb(255, 255, 255);
+    font-size: 90px;
+    background-image: url();
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border: 5px solid gray;
+    padding: 5px;
+    margin: 10px;
+}
+
+#heading img{
+    height: 200px;
+    width: 350px;
+}
+
+#heading h1{
+    font-family: seb;
+    font-weight: 50;
+    font-style: italic;
+    
+}
+
+.card {
+    height:350px;
+    width: 250px;
+    background-color: rgba(194, 187, 187, 0.257);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid rgb(111, 110, 110);
+}
+
+.card:hover{
+    height: 370px;
+    width: 275px;
+    background-color: rgb(164, 158, 158);
+}
+
+.card img{
+    height:240px;
+    width: 250px;
+    padding: 10px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.card:hover img{
+    height: 245px;
+    width: 270px;
+}
+
+.card h2{
+    text-align: center;
+
+}
+
+.card button{
+    margin: 10px;
+    padding: 10px;
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    background-color: brown;
+    border-radius: 50px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card button:hover{
+    color: brown;
+    background-color: black;
+    font-size: 30px;
+}
