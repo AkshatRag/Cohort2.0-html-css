@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#nav {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(41, 40, 40);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6%;
+
+    padding-left: 20%;
+    padding-right: 20%;
+
+}
+
+#nav h2 {
+
+    color: white;
+    padding-top: 0.5%;
+    font-weight: 500;
+    font-size: 18px;
+    
+}
+
+#center {
+    width: 100%;
+    height: 700px;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+#description{
+    text-align: center;
+    padding: 20px;
+    font-size: 17px;
+    background-color: aliceblue;
+    overflow: hidden;
+}
+
+#video{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)rotateZ(270deg);
+    object-fit: cover;
+    transition: all ease 1.5s;
+    top: 4%;
+    overflow: hidden;
+    
+
+}
+
+#center:hover #video{
+    transform: rotateZ(360deg) translateX(-50%);
+    
+}
+
+#center:hover #iphone17{
+    transform: translateX(20%);
+    transition: all ease 1.5s;;
+}
+
+#iphone17 {
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+}
+
+#iphone17 h2{
+    font-size: 40px;
+}
+
+#iphone17 h1{
+    font-size: 70px;
+    font-weight: 600;
+    background-image: linear-gradient(to right, rgba(176, 103, 176, 0.721),rgb(65, 119, 173), rgb(135, 202, 135));
+    color: transparent;
+    background-clip: text;
+}
+
+#about{
+    width: 100%;
+    height: 1500px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+   
+}
+
+.card{
+    height: 500px;
+    width: 450px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 20px;
+    transition: all ease 0.4s;
+    box-shadow: 2px black;
+
+}
+
+.card img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.bottom{
+  height: 30%;
+  width: 100%;
+  position: absolute;
+  bottom: -40%;
+  transition: all ease 0.4s;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: linear-gradient(transparent,rgb(39, 38, 38));
+
+}
+
+.card:hover .bottom{
+  bottom: 0;
+}
+
+.bottom h3{
+    font-size: 25px;
+    color: white;
+}
+
+.bottom button{
+    height: 50px;
+    width: 120px;
+    border-radius: 50px;
+    border-color: royalblue;
+    border-radius: 2px solid white;
+    font-size: 16px;
+}
+
+#footer{
+    width: 100%;
+    height: 100px;
+}
+
+.card:hover {
+    height: 450px;
+    width: 385px;
+}
