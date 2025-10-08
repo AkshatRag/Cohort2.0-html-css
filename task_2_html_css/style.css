@@ -8,22 +8,27 @@ html,body {
     height: 100%;
     width: 100%;
 }
-#main {
-    height: 100%; 
+#main{
+    background-color: black;
+    overflow: hidden;
+}
+#page1 {
+    height: 800px; 
     width: 100%;
     background-image: url(https://images.unsplash.com/photo-1759403117912-94e07f918cf3?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     text-align: center;
+    overflow: hidden;
 }
-#main h1{
+#page1 h1{
     font-size: 150px;
     padding-top: 200px;
     color: rgb(225, 239, 255);
     font-weight: 100;
 }
-#main button{
+#page1 button{
     margin-top: 20px;
     padding: 10px 10px ;
     height: 60px;
@@ -37,7 +42,7 @@ html,body {
     
  }
 
-#main button:hover{
+#page1 button:hover{
     background-color: aqua;
     transform: scale(1.05);
  }
@@ -47,4 +52,156 @@ html,body {
     font-weight: 50PX;
     color: aliceblue;
     
+ }
+
+ #page2{
+    margin: 10px;
+    height: 800px;
+    width: 100%;
+    background-color: black;
+
+ }
+
+ .section1{
+    width: 100%;
+    height: 350px;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow: auto;
+ }
+
+ .section1::-webkit-scrollbar{
+    background-color: black;
+ }
+
+ .section1::-webkit-scrollbar-thumb{
+    background-color: rgba(175, 175, 178, 0.405);
+ }
+
+ .card{
+    width: 20%;
+    height: 95%;
+    position: relative;
+    overflow: hidden;
+    transition: all ease 0.5s;
+    border-radius: 15px;
+    flex-shrink: 0;
+    
+
+ }
+
+ .card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+ }
+
+ .card .bottom{
+    width: 100%;
+    height: 30%;
+    background-color: black; 
+    text-align: center;
+    position: absolute;
+    bottom: -30%;
+    background: linear-gradient(transparent, rgb(0, 0, 0));
+    transition: all ease 0.5s;
+    
+ }
+
+ .card:hover .bottom{
+    bottom: 0%;
+    transition: all ease 0.5s;
+ }
+
+ .card:hover {
+    height: 100%;
+    width: 23%;
+    transition: all ease 0.5s;
+ }
+
+
+ .bottom h2{
+    color: white;
+    font-size: 30px;
+    margin: 5px;
+   
+ }
+
+ .bottom button{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    transition: all ease 0.2s;
+    cursor: pointer;
+    
+ }
+ .bottom button:hover{
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    font-size: 22px;
+ }
+
+ .section2{
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-color: rgb(0, 0, 0);
+    
+ }
+ #tiger1{
+     transition: all ease 0.4s;
+ }
+
+ #tiger1 img{
+    border-radius: 10px;
+    width: 350px;
+    height: 95%;
+    margin-right: 50px;
+    transition: all ease 0.4s;
+ }
+ #tiger1 img:hover {
+    width: 360px;
+    height: 100% ;
+ }
+ #tigerdesc{
+    background: linear-gradient(transparent, rgb(36, 36, 36));
+    border-radius: 10px;
+    margin-right: 1%;
+
+ }
+
+ #tigerdesc h1{
+    color: white;
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-weight:400 ;
+    text-align: center;
+    
+ }
+
+  #tigerdesc p{
+    color: white;
+    font-size: 25px;
+    padding: 20px;
+    padding-left: 20%;
+    padding-right: 20%;
+    transition: all ease 0.4s;
+ }
+ #footer{
+    text-align: center;
+    width: 100%;
+    height: 20px;
+ }
+
+ #footer p {
+    color: white;
  }
