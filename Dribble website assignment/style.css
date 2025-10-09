@@ -379,6 +379,7 @@ html,body{
 
 .card:hover .innerdiv{
     bottom: 0;
+    transition: all ease 0.6s;
 }
 .card img{
     height: 100%;
