@@ -77,6 +77,10 @@ html,body {
     background-color: black;
  }
 
+::-webkit-scrollbar-thumb:hover{
+   cursor: pointer;
+}
+
  .section1::-webkit-scrollbar-thumb{
     background-color: rgba(175, 175, 178, 0.405);
  }
