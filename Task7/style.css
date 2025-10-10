@@ -1,0 +1,101 @@
+
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#main{
+    padding: 5%;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-template-areas: "box1 box2 box3 box4"
+                         "box1 box5 box5 box4"
+                         "box6 box5 box5 box7"
+                         "box6 box8 box9 box9";
+
+    grid-gap: 10px;
+    background: linear-gradient(rgb(0, 0, 0),rgb(0, 32, 0));
+}
+
+#box1{
+ grid-area: box1;
+}
+
+#box2{
+    grid-area: box2;
+}
+
+#box3{
+    grid-area: box3;
+}
+
+#box4{
+    grid-area: box4;
+}
+
+#box5{
+    grid-area: box5;
+}
+
+#box6{
+    grid-area: box6;
+}
+
+#box7{
+    grid-area: box7;
+}
+
+#box8{
+    grid-area: box8;
+}
+
+#box9{
+    grid-area: box9;
+    background-position: 50% 30%;
+}
+
+.box{
+   border-radius: 0.5rem;
+   background-size: cover;
+   background-position: center;
+   padding: 10px;
+   border: 5px solid white;
+   transition: all ease 0.5s;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.box:hover{
+   background-color: #343434;
+   background-blend-mode: overlay;
+   transition: all ease 0.5s;
+   transform: scale(0.9);
+}
+
+.box h1{
+    color: white;
+    font-size: 70px;
+    display: none;
+    transition: all ease 1s;
+}
+
+.box:hover h1{
+    display: block;
+    transition: all ease 1s;
+}
+
+
