@@ -2,6 +2,7 @@
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 html, body {
@@ -30,7 +31,7 @@ html, body {
 }
 #main .section:hover {
   flex-grow: 2;
-  background-color: rgba(182, 180, 180, 0.7215686275);
+  background-color: rgba(25, 25, 25, 0.7215686275);
   background-blend-mode: overlay;
 }
 #main .section:nth-child(1) {
@@ -47,4 +48,59 @@ html, body {
 }
 #main .section:nth-child(5) {
   background-image: url(https://i.pinimg.com/736x/28/9d/12/289d1220efe4edc04dd023cbc978c595.jpg);
+}
+#main .ironman {
+  font-size: 28px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(255, 0, 0, 0.579);
+  color: white;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+#main .loki {
+  font-size: 28px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(0, 128, 0, 0.568);
+  color: white;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+#main .thor {
+  font-size: 28px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(0, 119, 255, 0.604);
+  color: white;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+#main .spiderman {
+  font-size: 28px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(255, 0, 0, 0.725);
+  color: white;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+#main .hulk {
+  font-size: 28px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(0, 128, 0, 0.652);
+  color: white;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+#main #button:hover {
+  scale: 1.5;
+  padding-left: 15px;
+  padding-right: 15px;
 }/*# sourceMappingURL=style.css.map */

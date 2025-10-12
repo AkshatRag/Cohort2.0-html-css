@@ -1,12 +1,20 @@
+@import "./button";
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 html,body{
     height: 100%;
     width: 100%;
+}
+
+@mixin flexCenter(){
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #main{
@@ -21,9 +29,7 @@ html,body{
     .section{
         flex-grow: 1;
         border: 2px solid black;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flexCenter();
         transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.7s;
         background-size: cover;
         background-position: center;
@@ -34,7 +40,7 @@ html,body{
 
     .section:hover{
         flex-grow: 2;
-        background-color: #b6b4b4b8;
+        background-color: #191919b8;
         background-blend-mode: overlay;
     }
 
@@ -59,6 +65,30 @@ html,body{
 
     }
 
+    .ironman{
+        @include buttonStyle(rgba(255, 0, 0, 0.579),white);
+    }
 
+    .loki{
+        @include buttonStyle(rgba(0, 128, 0, 0.568),white);
+    }
+
+    .thor{
+        @include buttonStyle(rgba(0, 119, 255, 0.604),white);
+    }
+
+    .spiderman{
+        @include buttonStyle(rgba(255, 0, 0, 0.725),white);
+    }
+
+    .hulk{
+        @include buttonStyle(rgba(0, 128, 0, 0.652),white);
+    }
+
+    #button:hover{
+        scale:1.5;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
