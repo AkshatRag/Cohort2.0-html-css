@@ -1,0 +1,97 @@
+@font-face {
+  font-family: f1;
+  src: url(/fonts/Pin-Sans-MacOS-Regular-708c49dd.woff2);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  background-color: rgb(0, 0, 0);
+}
+main header {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  padding: 3vw;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+main header .left {
+  display: flex;
+  align-items: center;
+  width: 33.33%;
+  gap: 1vw;
+}
+main header .left img {
+  width: 10%;
+}
+main header .left h1 {
+  font-family: f1;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+main header .left i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3vw;
+  cursor: pointer;
+}
+main header .center {
+  width: 33.33%;
+  align-items: center;
+  display: flex;
+  gap: 1.5vw;
+  justify-content: center;
+}
+main header .center h1 {
+  font-family: f1;
+  font-size: 1.3vw;
+  text-decoration: underline;
+  cursor: pointer;
+}
+main header .center h2 {
+  font-family: f1;
+  font-size: 1.3vw;
+  cursor: pointer;
+}
+main header .right {
+  width: 33.33%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1vw;
+}
+main header .right i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+main section figure {
+  -moz-columns: 200px 5;
+       columns: 200px 5;
+  padding: 0 20px;
+}
+main section figure img {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0.9rem;
+  cursor: pointer;
+}
+main section figure video {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0.9rem;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
