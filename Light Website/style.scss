@@ -1,0 +1,1005 @@
+/* ============================================================
+   - Includes @font-face
+   - Variables + Mixins
+   - Desktop (default) -> Desktop enhancements (min-width:1000px)
+   - Mobile overrides (max-width:600px)
+   - 4K overrides (min-width:2560px)
+   ============================================================ */
+
+@font-face {
+  font-family: light-font;
+  src: url(./Fonts/Montserrat-Light.otf);
+}
+@font-face {
+  font-family: bold-font;
+  src: url(./Fonts/Montserrat-Bold.otf);
+}
+
+/* -------------------------
+   Variables
+   ------------------------- */
+$bg-dark: #0a0a0b; /* main background - keep exact */
+$white: #fff;
+$black: #000;
+
+/* Breakpoints */
+$bp-mobile: 600px;   /* max-width: 600px -> mobile */
+$bp-desktop: 1000px; /* min-width: 1000px -> normal PC/laptops */
+$bp-4k: 2560px;      /* min-width: 2560px -> 4K */
+
+/* Spacing / sizes (mirrors original values) */
+$nav-padding: 2rem 1.5rem;
+
+/* -------------------------
+   Mixins
+   ------------------------- */
+
+/* Basic flex helper */
+@mixin flex($dir: row, $justify: flex-start, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+/* Button style used in many places (keeps original look) */
+@mixin btn-base($bg: $white, $color: $black, $radius: 0.3rem, $pad: 0.8rem 0.5rem, $font-size: 0.8rem) {
+  background-color: $bg;
+  color: $color;
+  border-radius: $radius;
+  padding: $pad;
+  font-size: $font-size;
+  cursor: pointer;
+  @if $bg == $black {
+    /* preserve inner button styles where black bg was used in original */
+    button { background-color: $black; border: none; color: $white; }
+  }
+}
+
+/* Grid template helper (2x2) used in .meta grid */
+@mixin grid-2x2($gap: 2rem) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: $gap;
+}
+
+/* 3-column grid helper used in .light */
+@mixin grid-3col($gap: 1rem) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: $gap;
+}
+
+/* Text helpers to avoid repetition */
+@mixin h1-style($size: 3.8rem, $family: bold-font, $color: $black, $align: center) {
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+  text-align: $align;
+}
+
+/* -------------------------
+   Global reset & base
+   ------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, "Poppins", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* -------------------------
+   Main container (desktop-first)
+   ------------------------- */
+main {
+  width: 100%;
+  background-color: $bg-dark;
+  /* -------------------------
+     Explore section
+     ------------------------- */
+  .explorer {
+    @include flex(column, center, center);
+    width: 100%;
+
+    img {
+      position: relative;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .content {
+      width: 50%;
+      @include flex(column, center, center, 2rem);
+
+      /* inner image overlapping */
+      img {
+        position: absolute;
+        width: 90%;
+        object-fit: cover;
+        object-position: center;
+        margin-top: -80%;
+      }
+
+      figure {
+        position: absolute;
+        @include flex(column, center, center);
+        width: 20%;
+        margin-top: -75%;
+
+        /* Logo inside figure */
+        img {
+          width: 40%;
+          aspect-ratio: 1/1;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      /* nested content (kept identical) */
+      .content {
+        @include flex(column, center, center);
+        position: absolute;
+        margin-top: -60%;
+
+        h1 {
+          @include h1-style(3.8rem, bold-font, $black, center);
+        }
+        p {
+          font-family: light-font;
+          color: $black;
+          font-size: 1.5rem;
+          text-align: center;
+        }
+        .btn {
+          @include flex(row, center, center, 1rem);
+          background-color: $black;
+          border-radius: 1rem;
+          padding: 1rem 1rem;
+          color: $white;
+          cursor: pointer;
+
+          button {
+            background-color: $black;
+            border: none;
+            font-size: 1rem;
+            color: $white;
+          }
+        } /* .btn */
+      } /* .content (inner) */
+    } /* .content */
+  } /* .explorer */
+
+  /* -------------------------
+     New section
+     ------------------------- */
+  .new {
+    width: 100%;
+    @include flex(column, center, center);
+    position: relative;
+
+    img {
+      width: 70%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      margin-top: 50%;
+    }
+
+    .new-content {
+      position: absolute;
+      width: 50%;
+      @include flex(column, center, center, 1rem);
+      padding: 1rem 2rem;
+      margin-top: -85%;
+
+      span {
+        border-radius: 1rem;
+        color: $white;
+        background-color: transparent;
+        font-size: 1rem;
+        border: 0.1rem solid $white;
+        padding: 0.6rem 0.9rem;
+        border-radius: 5rem;
+      }
+      h2 {
+        color: $white;
+        font-family: bold-font;
+        font-size: 3.5rem;
+        text-align: center;
+      }
+      p {
+        color: $white;
+        opacity: 0.7;
+        font-family: light-font;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+    }
+
+    /* preserve the extra img rules from original (keeps look identical) */
+    img {
+      width: 60%;
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+      margin-top: -20%;
+    }
+
+    figure {
+      width: 50%;
+      img {
+        width: 60%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        margin-top: -60%;
+        margin-left: -5%;
+      }
+    }
+  } /* .new */
+
+  /* -------------------------
+     Meta Timeline section
+     ------------------------- */
+  .meta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .part-1 {
+        @include flex(column, flex-start, flex-start, 1rem);
+
+        span {
+          color: $white;
+          opacity: 0.7;
+        }
+        h1 {
+          color: $white;
+          font-size: 1.5rem;
+        }
+        p {
+          color: $white;
+          opacity: 0.5;
+        }
+
+        .grid {
+          @include grid-2x2(2rem);
+          grid-template-areas:
+            "grid-1 grid-2"
+            "grid-3 grid-4";
+
+          .grid-1 { grid-area: grid-1;
+            h6 { font-size: 1rem; color: $white; line-height: 2; }
+          }
+          .grid-2 { grid-area: grid-2;
+            h6 { font-size: 1rem; color: $white; line-height: 2; }
+          }
+          .grid-3 { grid-area: grid-3;
+            h6 { font-size: 1rem; color: $white; line-height: 2; }
+          }
+          .grid-4 { grid-area: grid-4;
+            h6 { font-size: 1rem; color: $white; line-height: 2; }
+          }
+        } /* .grid */
+
+        .bottom {
+          font-size: 1rem;
+          color: $white;
+          opacity: 1;
+        }
+      } /* .part-1 */
+
+      .part-2 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        figure {
+          width: 100%;
+          img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      } /* .part-2 */
+    } /* .main */
+  } /* .meta */
+
+  /* -------------------------
+     Profile Board section
+     ------------------------- */
+  .profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+
+    .part-1 {
+      .profile {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        h5 {
+          color: $white;
+          text-transform: uppercase;
+          font-family: light-font;
+          font-size: 1rem;
+          opacity: 0.7;
+        }
+        h1 {
+          color: $white;
+          font-size: 1.6rem;
+        }
+        p {
+          color: $white;
+          font-size: 1rem;
+          opacity: 0.7;
+          line-height: 1.5;
+        }
+      } /* .profile (inner) */
+
+      figure {
+        img { width: 100%; }
+      }
+    } /* .part-1 */
+  } /* .profile */
+
+  /* -------------------------
+     Social graph section
+     ------------------------- */
+  .social {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+
+    .part-1 {
+      .graph {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        h5 {
+          color: $white;
+          text-transform: uppercase;
+          font-family: light-font;
+          font-size: 1rem;
+          opacity: 0.7;
+        }
+        h1 { color: $white; font-size: 1.6rem; }
+        p {
+          color: $white;
+          font-size: 1rem;
+          opacity: 0.7;
+          line-height: 1.5;
+          font-family: light-font;
+        }
+      } /* .graph */
+
+      figure {
+        img { width: 100%; }
+      }
+    } /* .part-1 */
+  } /* .social */
+
+  /* -------------------------
+     light Protocol section
+     ------------------------- */
+  .light {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem 2rem;
+
+      span {
+        color: $white;
+        opacity: 0.7;
+        text-transform: uppercase;
+        font-size: 1rem;
+      }
+      h6 {
+        color: $white;
+        font-family: bold-font;
+        font-size: 3rem;
+      }
+
+      .grid {
+        @include grid-3col(1rem);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+          "part-1 part-2 part-3"
+          "part-1 part-2 part-4"
+          "part-1 part-2 part-4"
+          "part-1 part-2 part-4";
+        gap: 1rem;
+
+        .part-1, .part-2, .part-3, .part-4 {
+          border-radius: 1rem;
+          border: 0.1rem solid #ffffff2d;
+          background-color: rgba(40, 40, 40, 0.216);
+        }
+
+        .part-1 {
+          grid-area: part-1;
+          .text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem 2rem;
+            span { color: $white; opacity: 0.7; text-transform: uppercase; }
+            h3 { color: $white; font-family: bold-font; font-size: 2rem; }
+            figure { display:flex; flex-direction:column; align-items:center; width:100%;
+              img { width: 80%; object-fit: cover; }
+            }
+          }
+        }
+
+        .part-2 {
+          grid-area: part-2;
+          .text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem 2rem;
+            span { color: $white; opacity: 0.7; text-transform: uppercase; }
+            h3 { color: $white; font-family: bold-font; font-size: 2rem; }
+            figure { display:flex; flex-direction:column; align-items:center; width:100%;
+              img { width: 80%; object-fit: cover; }
+            }
+          }
+        }
+
+        .part-3 {
+          grid-area: part-3;
+          .text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem 2rem;
+            span { color: $white; opacity: 0.7; }
+            h3 { color: $white; font-family: bold-font; font-size: 2rem; }
+          }
+        }
+
+        .part-4 {
+          grid-area: part-4;
+          .text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem 2rem;
+            span { color: $white; opacity: 0.7; }
+            h3 { color: $white; font-family: bold-font; font-size: 2rem; }
+          }
+        }
+      } /* .grid */
+    } /* .content */
+  } /* .light */
+
+  /* -------------------------
+     Do/not section
+     ------------------------- */
+  .do {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    img {
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+
+      figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        img {
+          object-fit: cover;
+          object-position: center;
+          width: 20%;
+        }
+      }
+
+      p {
+        width: 100%;
+        color: $white;
+        text-align: center;
+        font-family: bold-font;
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        @include flex(row, center, center, 1rem);
+        background-color: $black;
+        border-radius: 1rem;
+        padding: 1rem 1rem;
+        color: $white;
+        cursor: pointer;
+
+        button {
+          background-color: $black;
+          border: none;
+          font-size: 1rem;
+          color: $white;
+        }
+      }
+    } /* .center */
+  } /* .do */
+
+  /* -------------------------
+     Footer section
+     ------------------------- */
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .part-1 {
+      .icons {
+        color: $white;
+        opacity: 0.7;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        font-size: 1.5rem;
+        padding: 1rem;
+      }
+    }
+
+    .part-2 {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 1rem;
+
+      .resource, .company, .legal {
+        color: $white;
+        opacity: 0.5;
+
+        ul {
+          li {
+            list-style: none;
+            line-height: 3;
+            font-family: light-font;
+          }
+          li:nth-child(1) { text-transform: uppercase; }
+        }
+      }
+    }
+  } /* footer */
+
+  .line {
+    width: 100%;
+    border-top: 0.01rem solid $white;
+
+    p {
+      color: $white;
+      opacity: 0.5;
+      padding: 3rem 1rem;
+    }
+  }
+
+} /* main */
+
+/* ============================================================
+   Responsive rules (desktop-first)
+   - Keep the same media queries you used, but structured here
+   ============================================================ */
+
+/* -------------------------
+   Larger desktop / normal PC styles
+   (min-width: 1000px) — matches request for "normal PC sizes"
+   ------------------------- */
+@media (min-width: $bp-desktop) {
+  main {
+
+    /* Meta timeline — place .main as row */
+    .meta {
+      padding: 1rem 2rem;
+
+      .main {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        .part-1 {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          span { color: $white; opacity: 0.7; }
+          h1 { color: $white; font-size: 1.5rem; }
+          p { color: $white; opacity: 0.5; }
+
+          .grid {
+            @include grid-2x2(2rem);
+            gap: 2rem;
+            .grid-1, .grid-2, .grid-3, .grid-4 {
+              h6 { font-size: 1rem; color: $white; line-height: 2; }
+            }
+          } /* .grid */
+
+          .bottom { font-size: 1rem; color: $white; opacity: 1; }
+        } /* .part-1 */
+
+        .part-2 {
+          width: 50%;
+          display: flex;
+          flex-direction: row;
+
+          figure {
+            width: 100%;
+            img { width: 100%; object-fit: cover; object-position: center; }
+          }
+        } /* .part-2 */
+      } /* .main */
+    } /* .meta */
+
+    /* Profile section -> row layout */
+    .profile {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem 1rem;
+
+      .part-1 {
+        display: flex;
+        flex-direction: row-reverse;
+
+        .profile {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 1rem;
+
+          h5 { color: $white; text-transform: uppercase; font-family: light-font; font-size: 1.5rem; opacity: 0.7; }
+          h1 { color: $white; font-size: 3rem; }
+          p { color: $white; font-size: 2rem; opacity: 0.7; }
+        }
+
+        figure { img { width: 100%; } }
+      }
+    } /* .profile */
+
+    /* Social -> row layout */
+    .social {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem 1rem;
+
+      .part-1 {
+        display: flex;
+        flex-direction: row;
+
+        .graph {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 1rem;
+
+          h5 { color: $white; text-transform: uppercase; font-family: light-font; font-size: 1.5rem; opacity: 0.7; }
+          h1 { color: $white; font-size: 3rem; }
+          p { color: $white; font-size: 2rem; opacity: 0.7; }
+        }
+
+        figure {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          img { width: 90%; }
+        }
+      }
+    } /* .social */
+
+    /* Do/not section tweaks for desktop */
+    .do {
+      .center {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 20%;
+
+        figure { width: 30%; img { width: 40%; } }
+
+        p {
+          width: 100%;
+          color: $black; /* original desktop changed color to black in your file */
+          text-align: center;
+          font-family: bold-font;
+          font-size: 3rem;
+        }
+
+        .btn {
+          button {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            background-color: $black;
+            border: none;
+            font-size: 1rem;
+            color: $white;
+            border-radius: 1rem;
+            cursor: pointer;
+          }
+        }
+      } /* .center */
+    } /* .do */
+
+    /* Footer layout for larger screens */
+    footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 1rem;
+
+      .part-1 {
+        .icons { color: $white; opacity: 0.7; display:flex; gap:1rem; font-size:1.5rem; padding:1rem; }
+      }
+
+      .part-2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: 1rem;
+        padding: 1rem 1rem;
+
+        .resource, .company, .legal {
+          color: $white;
+          opacity: 0.5;
+          ul {
+            li { list-style: none; line-height: 3; font-family: light-font; }
+            li:nth-child(1) { text-transform: uppercase; }
+          }
+        }
+      }
+    } /* footer */
+
+    .line {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      border-top: 0.01rem solid $white;
+
+      p { color: $white; opacity: 0.5; padding: 3rem 1rem; }
+    }
+  } /* main within min-width:1000px */
+} /* @media min-width:1000px */
+
+
+/* -------------------------
+   Mobile styles (max-width: 600px)
+   - Matches your original mobile block but restructured
+   ------------------------- */
+@media (max-width: $bp-mobile) {
+  main {
+    /* Explorer */
+    .explorer {
+      img { margin-top: 10%; } /* original file had margin-top:10% in mobile */
+      .content {
+        width: 50%;
+
+        img { position: absolute; width: 90%; margin-top: -80%; }
+
+        figure {
+          position: absolute;
+          width: 20%;
+          margin-top: -5070%; /* preserved original unusual value */
+          img { width: 40%; aspect-ratio: 1/1; object-fit: cover; }
+        }
+
+        .content {
+          position: absolute;
+          margin-top: -40%; /* original mobile used -40% */
+          h1 { font-family: bold-font; color: $black; font-size: 2rem; text-align: center; }
+          p { font-family: light-font; color: $black; font-size: 1rem; text-align: center; }
+          .btn { button { font-size: 0.8rem; } }
+        }
+      } /* .content */
+    } /* .explorer */
+
+    /* New section mobile */
+    .new {
+      img { position: absolute; margin-top: 10%; width: 70%; }
+      .new-content {
+        position: absolute;
+        width: 50%;
+        padding: 1rem 2rem;
+        margin-top: -50%;
+        span { font-size: 1rem; border-radius: 5rem; }
+        h2 { font-size: 1.5rem; }
+        p { font-size: 1rem; }
+      }
+      img { width: 60%; position: relative; }
+      figure {
+        img { width: 60%; position: absolute; margin-top: -55%; margin-left: -5%; }
+      }
+    } /* .new */
+
+    /* light Protocol -> stacked single column */
+    .light {
+      .content {
+        span { padding: 1rem; }
+        h6 { font-size: 2rem; padding: 0 0.5rem 0.8rem 0; }
+        .grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "part-1"
+            "part-2"
+            "part-3"
+            "part-4";
+          gap: 1rem;
+
+          .part-1, .part-2, .part-3, .part-4 {
+            border-radius: 1rem;
+            border: 0.1rem solid #ffffff2d;
+            background-color: rgba(40, 40, 40, 0.216);
+
+            .text {
+              display:flex;
+              flex-direction:column;
+              gap:1rem;
+              padding:2rem;
+              span { font-size:0.8rem; }
+              h3 { font-size:1rem; }
+              figure { img { width:80%; } }
+            }
+          }
+        }
+      }
+    } /* .light */
+  } /* main */
+} /* @media max-width:600px */
+
+
+/* -------------------------
+   4K and ultra-wide (min-width:2560px)
+   - Slight scale-up adjustments, keeping all original spacings intact,
+     but allowing larger font-sizes where appropriate
+   - These changes are subtle so look is preserved on 4K
+   ------------------------- */
+@media (min-width: $bp-4k) {
+  main {
+    /* Slightly increase prominent headings while keeping exact structure */
+    .explorer {
+      .content {
+        .content {
+          h1 { font-size: 4.8rem; } /* preserve look but scale up for 4k */
+          p { font-size: 1.8rem; }
+          .btn { padding: 1.2rem 1.2rem; button { font-size: 1.2rem; } }
+        }
+      }
+    }
+
+    .new {
+      .new-content { h2 { font-size: 4rem; } p { font-size: 1.8rem; } }
+    }
+
+    .meta .part-1 h1 { font-size: 2rem; }
+    .profile .part-1 .profile {
+      h1 { font-size: 4rem; }
+      p { font-size: 2.5rem; }
+    }
+    .social .part-1 .graph {
+      h1 { font-size: 4rem; }
+      p { font-size: 2.5rem; }
+    }
+    .light .content h6 { font-size: 4.2rem; }
+  }
+} /* @media min-width:2560px */
+
+/* ============================================================
+   Animations & Hover Effects
+   - Dynamic / Expressive (glowing, scaling, smooth transitions)
+   ============================================================ */
+
+/* -------------------------
+   Keyframes
+   ------------------------- */
+@keyframes cm-glow {
+  0%, 100% { box-shadow: 0 0 5px $white; }
+  50% { box-shadow: 0 0 20px $white; }
+}
+
+@keyframes cm-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes cm-fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------
+   Buttons (all .btn and button elements)
+   ------------------------- */
+.btn, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px $white, 0 0 30px $white;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+  animation: cm-pulse 2s infinite ease-in-out;
+}
+
+/* -------------------------
+   Text Glow (hover)
+   ------------------------- */
+h1, h2, h3, h5, h6, p, span {
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    text-shadow: 0 0 10px $white, 0 0 20px $white;
+  }
+}
+
+/* -------------------------
+   Images / Figures Hover
+   ------------------------- */
+figure img,
+.explorer img,
+.new img,
+.profile figure img,
+.social figure img,
+.light .grid img,
+.do img {
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* -------------------------
+   Optional fade-in on load
+   ------------------------- */
+.fade-in {
+  opacity: 0;
+  animation: cm-fadeIn 0.8s forwards;
+}
+
