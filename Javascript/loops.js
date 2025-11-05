@@ -413,7 +413,57 @@
 // 18. Ask user 5 numbers. Count how many are positive
 //     Use loop + condition + counter.
 
+
+// let usernum = prompt("bhai 5 no. de de ek ek krke ");
+// let count = 0;
+// for(i=1; i<=5; i++){
+//     if(usernum === null){
+//         console.error("bhai cancle mat kr no. dal ");
+//     }else{
+//         usernum = usernum.trim();
+//         if(usernum === ""){
+//             console.error("bhai kuch to no. de de");
+//         }else if(isNaN(Number(usernum))){
+//             console.error("bhai no. hi daal masti mat kr");
+//         }else{
+//             usernum = Number(usernum);
+//             if(usernum > 0){
+//                 count++;
+//             }
+//         }
+//     }
+// }
+// console.log(`Positive numbers count: ${count}`);
+
+
 // ATM Simulator - Allow 3 withdrawals
 // Start with ₹1000 balance. Ask withdrawal amount 3 times.
 // If enough balance → deduct
 // Else → print "Insufficient balance"
+
+// let balance = 1000;
+// const maxWithdrawals = 3;
+// for (let i = 1; i <= maxWithdrawals; i++) {
+//   let input = prompt(`Withdrawal ${i}: Enter amount to withdraw (Balance: ₹${balance})`);
+//     if (input === null) {
+//     console.error("Bhai cancel mat kar, amount daal!");
+//     continue;
+//   } else {
+//     input = input.trim();
+//     if (input === "") {
+//       console.error("Bhai khaali mat chhod, amount daal!");
+//       continue;
+//     }
+//     if (isNaN(Number(input))) {
+//       console.error("Bhai number hi daal, masti mat kar!");
+//       continue;
+//     }
+//     let amount = Number(input);
+//     if (amount <= balance) {
+//       balance -= amount;
+//       console.log(`Withdrawal successful! New balance: ₹${balance}`);
+//     } else {
+//       console.log("Insufficient balance");
+//     }
+//     }
+// }
