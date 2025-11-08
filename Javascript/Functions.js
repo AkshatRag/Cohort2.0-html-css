@@ -113,3 +113,34 @@ higherOrderFunction(function(){
 // This is the callback function!
 // After callback
 
+// parameteres in javascript function[required, destructured, default, rest]
+function exampleFunction(requiredParam, {name, age}, defaultParam = "defaultValue", ...restParams){
+    console.log("requiredParam =", requiredParam);
+    console.log("name =", name + ", age =", age);
+    console.log("defaultParam =", defaultParam);
+    console.log("restParams =", restParams);
+}
+exampleFunction("requiredValue", {name: "John", age: 30}, undefined, "rest1", "rest2");
+// requiredParam = "requiredValue"
+// name = "John", age = 30
+// defaultParam = "defaultValue"
+// restParams = ["rest1", "rest2"]
+
+//arguments in  js [spread, positional, default]
+function argsExample(a, b = 10,c,d){
+    console.log("a =", a);
+    console.log("b =", b);
+    console.log("c =", c);
+    console.log("d =", d);
+}
+let argsArray = [1, 2, 3];
+argsExample(...argsArray); 
+// a = 1
+// b = 2
+// c = 3
+// d = undefined
+argsExample(5);
+// a = 5
+// b = 10
+// c = undefined
+// d = undefined
