@@ -138,7 +138,7 @@ argsExample(...argsArray);
 // a = 1
 // b = 2
 // c = 3
-// d = undefine
+// d = undefined
 argsExample(5);
 // a = 5
 // b = 10
