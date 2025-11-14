@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+main{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(93, 91, 91);
+    background-image: url(./blue-leaf-border-gray.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    section{
+        width: 100%;
+        padding: 15rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5rem;
+
+        .count{
+            padding: 0.7rem 4rem;
+            border: 10px solid black;
+            border-radius: 10px;
+            font-size: 12rem;
+        }
+
+        .btn{
+            display: flex;
+            gap: 2rem;
+
+            .btn1{
+                padding: 1.5rem;
+                background-color: rgb(150, 226, 37);
+                border-radius: 10%;
+                font-size: 1.3rem;
+                border: 5px solid green;
+                cursor: pointer;
+                transition: all ease 0.1s;
+                &.btn1:hover{
+                    background-color: rgb(38, 74, 2);}
+                
+            }
+            .btn2{
+                padding: 1.5rem 1.3rem;
+                background-color: rgb(206, 65, 65);
+                border: 5px solid rgb(67, 0, 0);
+                border-radius: 10%;
+                font-size: 1.3rem;
+                cursor: pointer;
+                transition: all ease 0.1s;
+                &.btn2:hover{
+                    background-color: darkred ;
+                } 
+            }
+        }
+
+
+    }
+}
