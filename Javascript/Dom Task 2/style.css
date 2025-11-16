@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+ 
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Prefer Inter for a minimal UI. Falls back to system fonts if unavailable. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+body{
+  color: #0f1720;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  font-weight: 400;
+}
+
+main{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+button{
+  padding: 20px 40px;
+  background-color: crimson;
+  border: none;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+  width: 240px;
+  text-align: center;
+}
+
+button:active{
+  transform: translateY(2px) scale(0.8);
+}
+
+.card{
+  width: 420px;
+  height: 560px;
+  padding: 28px 26px;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  text-align: center;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 22px 56px rgba(0,0,0,0.2);
+}
+
+.team-logo{
+  width: 260px;
+  height: 260px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+}
+
+.team-logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.team-info{
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 8px;
+  color: rgba(0,0,0,0.92);
+  line-height: 1.45;
+}
+
+.team-name{
+  font-size: 48px;
+  font-weight: 700;
+  margin: 8px 0 6px;
+  letter-spacing: 0.6px;
+}
+
+.team-fullname{
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.78);
+}
+
+.team-captain, .team-trophies{
+  font-size: 16px;
+  margin-top: 8px;
+  color: rgba(0,0,0,0.75);
+}
+
+/* Responsive adjustments: scale down layout on small screens */
+@media (max-width: 600px) {
+  .card{
+    width: 92%;
+    height: auto;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .team-logo{
+    width: 180px;
+    height: 180px;
+  }
+
+  .team-name{
+    font-size: 34px;
+  }
+
+  .team-fullname{
+    font-size: 16px;
+  }
+
+  .team-info{
+    font-size: 16px;
+  }
+
+  button{
+    width: 90%;
+    font-size: 20px;
+    padding: 16px 28px;
+  }
+}
+
+@media (max-width: 380px) {
+  .team-logo{
+    width: 140px;
+    height: 140px;
+  }
+
+  .team-name{
+    font-size: 28px;
+  }
+
+  .team-fullname{
+    font-size: 14px;
+  }
+
+  .team-info{
+    font-size: 14px;
+  }
+
+  button{
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+}
+
+
