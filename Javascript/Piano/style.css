@@ -1,0 +1,73 @@
+/* Simple aesthetic styles */
+:root{
+  --bg: #f6f5f6;
+  --card: #ffffff;
+  --muted: #3f3d42;
+  --accent: #efe6e6;
+  --shadow: rgba(10,10,10,0.06);
+  --key-w: 64px;
+  --key-h: 70px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family:'Kumbh Sans', system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--muted);}
+.page{min-height:100vh; display:flex; flex-direction:column; align-items:center;}
+
+.top{padding:34px 16px 8px; text-align:center;}
+.brand{font-weight:700; font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:#222;}
+.title{font-size:30px; margin:6px 0 0; color:#222;}
+
+.main{width:100%; display:flex; justify-content:center;}
+.area{position:relative; max-width:1100px; width:95%; padding:18px;}
+
+/* faint decorative image (optional) */
+.decor{position:absolute; right:8px; top:-36px; width:220px; opacity:0.06; pointer-events:none;}
+
+/* keyboard container */
+.keyboard{
+  background:var(--card);
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 14px 30px var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:center;
+}
+
+/* rows */
+.row{display:flex; gap:10px; flex-wrap:wrap; justify-content:center;}
+
+/* key style */
+.key{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:var(--key-w);
+  height:var(--key-h);
+  padding:8px 12px;
+  border-radius:10px;
+  background:linear-gradient(180deg,#ffffff,#fbfbfb);
+  border:1px solid rgba(0,0,0,0.06);
+  font-weight:700;
+  cursor:pointer;
+  user-select:none;
+  transition:transform 0.06s ease, box-shadow 0.06s ease;
+  box-shadow:3px 3px 3px rgba(136,134,134,0.12);
+}
+
+/* active / pressed */
+.key.active{
+  transform: translateY(6px);
+  box-shadow: inset 0 8px 18px rgba(0,0,0,0.08);
+}
+
+/* smaller on narrow screens */
+@media (max-width:720px){
+  .title{font-size:22px}
+  :root{ --key-w:48px; --key-h:54px; }
+  .decor{width:140px}
+}
+
+.hint{ text-align:center; color:var(--muted); margin-top:8px; }
+.foot{padding:20px 0; color:var(--muted); text-align:center;}
