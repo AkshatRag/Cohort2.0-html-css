@@ -23,7 +23,7 @@ h2.addEventListener("mouseenter", () => {
     h2.innerText = scrambledText;
 
     // smaller step = smoother reveal
-    iteration += 0.5;
+    iteration += 0.8;
 
     if (scrambledText === originalText) {
       clearInterval(intervalId);
